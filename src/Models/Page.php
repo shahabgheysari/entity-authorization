@@ -1,11 +1,11 @@
 <?php
 
-namespace Shahab\PA\Models;
+namespace Shahab\EA\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use DCN\RBAC\Traits\HasRoleAndPermission as HasRoleAndPermissionTrait;
 use DCN\RBAC\Contracts\HasRoleAndPermission as HasRoleAndPermissionContract;
-use Shahab\PA\Traits\Authorize;
+use Shahab\EA\Traits\Authorize;
 
 class Page extends Model implements HasRoleAndPermissionContract
 {

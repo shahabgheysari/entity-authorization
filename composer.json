@@ -1,7 +1,7 @@
 {
-    "name": "shahab/page-authorization",
+    "name": "shahab/entity-authorization",
     "license": "MIT",
-	"description": "page authorization for Laravel 5.2 based on dcn/rbac package",
+	"description": "entity authorization for Laravel 5.2 based on dcn/rbac package",
     "authors": [
         {
             "name": "shahab gheysari",
@@ -15,7 +15,7 @@
 		},
     "autoload": {
         "psr-4": {
-            "Shahab\\PA": "src/"
+            "Shahab\\EA": "src/"
         }
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePaTables extends Migration
+class CreateEaTables extends Migration
 {
     /**
      * Run the migrations.

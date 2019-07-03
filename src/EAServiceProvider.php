@@ -1,10 +1,10 @@
 <?php
 
-namespace Shahab\PA;
+namespace Shahab\EA;
 
 use Illuminate\Support\ServiceProvider;
 
-class PAServiceProvider extends ServiceProvider
+class EAServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
