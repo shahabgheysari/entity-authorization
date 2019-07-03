@@ -3,7 +3,6 @@
 namespace Shahab\PA\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use DGacl\Traits\hasRoleAndPermission;
 use DCN\RBAC\Traits\HasRoleAndPermission as HasRoleAndPermissionTrait;
 use DCN\RBAC\Contracts\HasRoleAndPermission as HasRoleAndPermissionContract;
 
