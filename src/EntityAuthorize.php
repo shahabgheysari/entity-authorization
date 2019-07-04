@@ -1,13 +1,13 @@
 <?php
 namespace Shahab\EA;
 
-class EntityAuhorize{
+class EntityAuthorize{
 
     /**
      * @param App\User $user 
      * @param Illuminate\Database\Eloquent\Model $entity
      */
-    public function authorizeRole($entity,$user)
+    public static function authorizeRole($entity,$user)
     {
         return $entity->authorizeRole($user);
     }
@@ -16,7 +16,7 @@ class EntityAuhorize{
      * @param App\User $user 
      * @param Illuminate\Database\Eloquent\Model $entity
      */
-    public function authorizePermission($entity,$user)
+    public static function authorizePermission($entity,$user)
     {
         return $entity->authorizePermission($user);
     }
