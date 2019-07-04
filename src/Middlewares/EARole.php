@@ -3,7 +3,7 @@
 namespace Shahab\EA\Middlewares;
 
 use Closure;
-use Shahab\EA\EntityAuthorize;
+use Shahab\EA\EntityAuthorization;
 use Shahab\EA\Exceptions\EANoAuthorizationException;
 use Shahab\EA\Exceptions\EAEntityNotFoundException;
 use Auth;
@@ -23,7 +23,7 @@ class EARole
         if(!$entity){
             throw new EAEntityNotFoundException;
         }
-        if(!EntityAuthorize::authorizeRole($entity,Auth::user()))
+        if(!EntityAuthorization::authorizeRole($entity,Auth::user()))
         {
             throw new EANoAuthorizationException;
         }

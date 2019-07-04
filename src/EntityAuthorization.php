@@ -1,7 +1,7 @@
 <?php
 namespace Shahab\EA;
 
-class EntityAuthorize{
+class EntityAuthorization{
 
     /**
      * @param App\User $user 
