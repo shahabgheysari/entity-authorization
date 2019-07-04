@@ -6,10 +6,12 @@ use Closure;
 use Shahab\EA\EntityAuthorization;
 use Shahab\EA\Exceptions\EANoAuthorizationException;
 use Shahab\EA\Exceptions\EAEntityNotFoundException;
+use Shahab\EA\Traits\Utility;
 use Auth;
 
 class EARole
 {
+    use Utility;
     /**
      * Handle an incoming request.
      *
@@ -19,7 +21,7 @@ class EARole
      */
     public function handle($request, Closure $next,$entityFullyQualifiedName,$entitySearchField,$entitySearchValue)
     { 
-        $entity = $entityFullyQualifiedName::get()->where($entitySearchField,$entitySearchValue)->first();
+        $entity = $this->entityFactory($entityFullyQualifiedName,$entitySearchField,$entitySearchValue);
         if(!$entity){
             throw new EAEntityNotFoundException;
         }
