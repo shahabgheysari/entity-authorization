@@ -3,9 +3,8 @@
 namespace Shahab\EA\Middlewares;
 
 use Closure;
-use Shahab\EA\EntityAuthorization;
+use EAC;
 use Shahab\EA\Exceptions\EANoAuthorizationException;
-use Shahab\EA\Exceptions\EAEntityNotFoundException;
 use Shahab\EA\Traits\Utility;
 use Auth;
 
@@ -21,14 +20,8 @@ class EAPermission
      */
     public function handle($request, Closure $next,$entityFullyQualifiedName,$entitySearchField,$entitySearchValue)
     {
-        $entity = $this->entityFactory($entityFullyQualifiedName,$entitySearchField,$entitySearchValue);
-        if(!$entity){
-            throw new EAEntityNotFoundException;
-        }
-        if(!EntityAuthorization::authorizePermission($entity,Auth::user()))
-        {
-            throw new EANoAuthorizationException;
-        }
+        $entity = $this->entityFactory($entityFullyQualifiedName,$entitySearchField,$entitySearchValue); 
+        EAC::authorizePermission($entity,Auth::user());
         return $next($request);
     }
 }

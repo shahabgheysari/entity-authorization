@@ -1,11 +1,16 @@
 <?php
 namespace Shahab\EA\Traits;
+use Shahab\EA\Exceptions\EAEntityNotFoundException;
 
 trait Utility{
 
     public function entityFactory($entityFullyQualifiedName,$entitySearchField,$entitySearchValue)
     {
-        return $entityFullyQualifiedName::get()->where($entitySearchField,$entitySearchValue)->first();
+        $entity = $entityFullyQualifiedName::get()->where($entitySearchField,$entitySearchValue)->first();
+        if(!$entity){
+            throw new EAEntityNotFoundException;
+        } 
+        return $entity;
     }
     
 }

@@ -1,13 +1,17 @@
 <?php
 namespace Shahab\EA;
 
+use Shahab\EA\Models\Page;
+use Auth;
+
+
 class EntityAuthorization{
 
     /**
      * @param App\User $user 
      * @param Illuminate\Database\Eloquent\Model $entity
      */
-    public static function authorizeRole($entity,$user)
+    public  function authorizeRole($entity,$user)
     {
         return $entity->authorizeRole($user);
     }
@@ -16,8 +20,12 @@ class EntityAuthorization{
      * @param App\User $user 
      * @param Illuminate\Database\Eloquent\Model $entity
      */
-    public static function authorizePermission($entity,$user)
+    public  function authorizePermission($entity,$user)
     {
         return $entity->authorizePermission($user);
+    }
+
+    public function bladePageRole($pageName){ 
+        return $this->authorizeRole(Page::get()->where('name',$pageName)->first(),Auth::User());
     }
 }

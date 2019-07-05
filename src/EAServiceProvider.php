@@ -1,8 +1,10 @@
 <?php
-
 namespace Shahab\EA;
 
+use Blade;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\App;
+use Shahab\EA\EntityAuthorization;
 
 class EAServiceProvider extends ServiceProvider
 {
@@ -16,6 +18,11 @@ class EAServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/migrations/' => database_path('/migrations')
         ], 'migrations');
+
+        Blade::directive('EApageRole', function($pageName) {
+            return "<?php echo EAC::bladePageRole(Route::currentRouteName()); ?>";
+        });
+
     }
 
     /**
@@ -25,6 +32,9 @@ class EAServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        App::bind('EAC', function()
+        {
+            return new EntityAuthorization();
+        });
     }
 }

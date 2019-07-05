@@ -3,7 +3,7 @@
 namespace Shahab\EA\Middlewares;
 
 use Closure;
-use Shahab\EA\EntityAuthorization;
+use EAC;
 use Shahab\EA\Exceptions\EANoAuthorizationException;
 use Shahab\EA\Exceptions\EAEntityNotFoundException;
 use Shahab\EA\Traits\Utility;
@@ -21,14 +21,8 @@ class EARole
      */
     public function handle($request, Closure $next,$entityFullyQualifiedName,$entitySearchField,$entitySearchValue)
     { 
-        $entity = $this->entityFactory($entityFullyQualifiedName,$entitySearchField,$entitySearchValue);
-        if(!$entity){
-            throw new EAEntityNotFoundException;
-        }
-        if(!EntityAuthorization::authorizeRole($entity,Auth::user()))
-        {
-            throw new EANoAuthorizationException;
-        }
+        $entity = $this->entityFactory($entityFullyQualifiedName,$entitySearchField,$entitySearchValue); 
+        EAC::authorizeRole($entity,Auth::user());
         return $next($request);
     }
 }
