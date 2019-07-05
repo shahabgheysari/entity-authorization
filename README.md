@@ -6,7 +6,7 @@ Based on the [dcn/rbac](https://github.com/mbm-rafal/RBAC) Package.The RBAC pack
 
 Entity: based on entity definition! In my package I considered Page as an entity! A Form,Field,Menu can be considered as an entity.In general,I mean any object that you need to authorize,which can be accessed by logged-in user.
 
-The Page entity is considered (as a sample) to authorize user for visit any page(route),either by the middlewares or in views by blade commands.
+The Page entity is considered (as a sample) to authorize user for visit any page(route),either by the middlewares or in views by blade directives.
 
 ## Usage
 Sorry,I didn't publish it on any Package Repository. If you find it usefull following below steps. Have a good development!
@@ -53,7 +53,7 @@ To use package middlewares edit `app/Http/Kernel.php` file.
 
 this is a sample of middlware usage:
 ```php
-Route::get('/createpermission', ['middleware'=>['auth','EAPermission:Shahab\EA\Models\Page,name,createpermission'],'uses'=>'HomeController@create_permission']);
+Route::get('/createpermission', ['as'=>'createpermission','middleware'=>['auth','EAPermission:Shahab\EA\Models\Page,name,createpermission'],'uses'=>'HomeController@create_permission']);
 ```
 A middlware has 3 parameters: 
 
@@ -130,7 +130,7 @@ Add the package to your application service providers in `config/app.php` file
     
     'aliases' => [
 
-        'EA'=> Shahab\EA\EntityAuthorization::class,
+        'EAC'=> Shahab\EA\Facades\EACLass::class,
 
     ],
 
