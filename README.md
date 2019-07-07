@@ -1,6 +1,6 @@
 # Entity Authorization For Laravel 5.2
 Simple, Small and Powerful! package for handling an entity authorization in Laravel 5.2.
-It was part of a big package that I developed for a project (don't worry! I take care of copyright, the project was failed!).
+It was part of a big package that I developed for a project (don't worry! I take care of respecting copyright, the project was failed!).
 Based on the [dcn/rbac](https://github.com/mbm-rafal/RBAC) Package.The RBAC package has an entity authorization solution but because we needed a specialized one we developed our own package.
 
 
