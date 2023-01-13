@@ -17,21 +17,10 @@ Sorry,I didn't publish it on any Package Repository. If you find it useful follo
 
 
  **2. Clone project**
- 
-clone this rep and copy in `vendor` folder
 
- **3. Update root composer.json.**
+ **3. Update composer.json.**
 
-update PSR-4 object and add a new property(root composer file).
-```js
-"psr-4": {
-            "App\\": "app/",
-            "Shahab\\EA\\":"vendor/shahab/src"
-        }
-    },
-```
-yours may be different.just add ` "Shahab\\EA\\":"vendor/shahab/src"` to this section.
-After that run `composer du` command inside the terminal!
+use local adding repo config 
 
 **4. Add middlewares**
 
